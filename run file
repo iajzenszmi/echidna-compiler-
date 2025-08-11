@@ -1,0 +1,29 @@
+(base) ian-martin-ajzenszmidt@ian-martin-ajzenszmidt-CFSZ5-3:~/Downloads$ cc hello.c -o hello -lm
+/usr/bin/ld: /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/Scrt1.o: in function `_start':
+(.text+0x1b): undefined reference to `main'
+collect2: error: ld returned 1 exit status
+(base) ian-martin-ajzenszmidt@ian-martin-ajzenszmidt-CFSZ5-3:~/Downloads$ nano hello.ech
+(base) ian-martin-ajzenszmidt@ian-martin-ajzenszmidt-CFSZ5-3:~/Downloads$ python3 echc.py hello.ech > hello.c
+(base) ian-martin-ajzenszmidt@ian-martin-ajzenszmidt-CFSZ5-3:~/Downloads$ cat hello.c
+#include <stdio.h>
+#include <math.h>
+#include <stdbool.h>
+#include <string.h>
+
+static inline void __p_int(long long x){ printf("%lld", x); }
+static inline void __p_double(double x){ printf("%.15g", x); }
+static inline void __p_bool(bool x){ printf("%s", x ? "true" : "false"); }
+static inline void __p_string(const char* s){ printf("%s", s); }
+
+int main(void);
+
+int main(void) {
+  __p_string("Hello, world!");
+  printf("\n");
+  return 0;
+}
+(base) ian-martin-ajzenszmidt@ian-martin-ajzenszmidt-CFSZ5-3:~/Downloads$ tcc hello.c
+(base) ian-martin-ajzenszmidt@ian-martin-ajzenszmidt-CFSZ5-3:~/Downloads$ ./a.out
+Hello, world!
+(base) ian-martin-ajzenszmidt@ian-martin-ajzenszmidt-CFSZ5-3:~/Downloads$ 
+
